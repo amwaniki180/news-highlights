@@ -30,3 +30,18 @@ def get_sources(category):
             articles_results = process_articles(articles_results_list)
 
     return articles_results
+
+def process_articles(source):
+    source_articles = []
+    for item_article in source:
+        author = item_article.get('author')
+        title = item_article.get('title')
+        description = item_article.get('description')
+        url = item_article.get('url')
+        urlToImage = item_article.get('urlToImage')
+        publishedAt = item_article.get('publishedAt')
+        if urlToImage:
+            articles_object = Articles(author,title,description,url,urlToImage,publishedAt)
+            source_articles.append(articles_object)
+    return source_articles
+

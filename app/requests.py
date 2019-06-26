@@ -59,5 +59,18 @@ def get_headlines(size):
             headlines_results = process_articles(headlines_list)
 
     return headlines_results
+
+    def search_article(article_name):
+    search_article_url = search_artice_baseurl.format(article_name,api_key)
+    with urllib.request.urlopen(search_article_url) as url:
+        search_article_data =  url.read()
+        search_article_response = json.loads(search_article_data)
+        search_article_results = None
+        if search_article_results['articles']:
+            search_article_list= search_article_response['']
+            search_article_results = process_artles(search_article_list)
+
+    return search_article_results
+
     
 

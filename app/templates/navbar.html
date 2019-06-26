@@ -36,3 +36,11 @@
                 </div>
             </div>
         </div>
+        <div class="main_menu_area">
+            <ul id="nav">
+                <li><a href="#">world channels</a>
+                    <ul>
+                        {% for item in technology %}
+                        <li><a href="/source/{{item.id}}&35">{{item.name}}</a></li>
+                        {%endfor%}
+                    </ul>

@@ -60,3 +60,11 @@
 
                     </ul>
                 </li>
+                <li><a href="#">general</a>
+                    <ul>
+                        {% for item in general %}
+                        <li><a href="/source/{{item.id}}&35">{{item.name}}</a></li>
+                        {%endfor%}
+
+                    </ul>
+                </li>

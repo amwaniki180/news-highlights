@@ -45,3 +45,19 @@ def process_articles(source):
             source_articles.append(articles_object)
     return source_articles
 
+def get_headlines(size):
+    get_headlines_url = news_headlines_base_url.format(size,api_key)
+
+    with urllib.request.urlopen(get_headlines_url) as url:
+        headlines_data = url.read()
+        headlines_response = json.loads(headlines_data)
+        
+        headlines_results= None
+
+        if headlines_response['articles']:
+            headlines_list = headlines_response['articles']
+            headlines_results = process_articles(headlines_list)
+
+    return headlines_results
+    
+

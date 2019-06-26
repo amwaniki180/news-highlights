@@ -17,7 +17,7 @@ def get_sources(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = base_url.format(category,api_key)
+    get_sources_url = 'https://newsapi.org/v2/sources?language=en&category={}&apiKey=69ffddaa40354ce6b0f5e313403cc1af'.format(category,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_articles_data = url.read()
@@ -46,7 +46,7 @@ def process_articles(source):
     return source_articles
 
 def get_headlines(size):
-    get_headlines_url = news_headlines_base_url.format(size,api_key)
+    get_headlines_url = 'https://newsapi.org/v2/top-headlines?language=en&pageSize={}&apiKey=69ffddaa40354ce6b0f5e313403cc1af'.format(size,api_key)
 
     with urllib.request.urlopen(get_headlines_url) as url:
         headlines_data = url.read()
@@ -60,17 +60,17 @@ def get_headlines(size):
 
     return headlines_results
 
-    def search_article(article_name):
-    search_article_url = search_artice_baseurl.format(article_name,api_key)
-    with urllib.request.urlopen(search_article_url) as url:
-        search_article_data =  url.read()
-        search_article_response = json.loads(search_article_data)
-        search_article_results = None
-        if search_article_results['articles']:
-            search_article_list= search_article_response['']
-            search_article_results = process_artles(search_article_list)
+# def search_article(article_name):
+#     search_article_url = search_artice_baseurl.format(article_name,api_key)
+#     with urllib.request.urlopen(search_article_url) as url:
+#         search_article_data =  url.read()
+#         search_article_response = json.loads(search_article_data)
+#         search_article_results = None
+#         if search_article_results['articles']:
+#             search_article_list= search_article_response['']
+#             search_article_results = process_artles(search_article_list)
 
-    return search_article_results
+#     return search_article_results
 
     
 

@@ -1,0 +1,14 @@
+{% extends 'base.html'%} {% import 'macros.html' as macro %} {% block content %}
+<h3>Online News Channels</h3>
+<div class="row m-0 p-o">
+    <div class="col-md-8 m-0 p-o">
+        <ul>
+            {{ macro.displayNewsSources(sports)}}
+        </ul>
+        <ul>
+            {{ macro.displayNewsSources(entertainment)}}
+        </ul>
+        <ul>
+            {{ macro.displayNewsSources(technology)}}
+        </ul>
+    </div>
